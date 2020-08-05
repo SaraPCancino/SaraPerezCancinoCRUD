@@ -14,10 +14,11 @@
     
 public class acciones_alumno {
    
+    @SuppressWarnings("UnusedAssignment")
     public static Connection getConnection(){
         String url, user, password;
         
-        url = "jdbc:mysql:3306//localhost/Alumnos";
+        url = "jdbc:mysql:3306//localhost/alumnos";
         user = "root";
         password = "18mayo98";
         
@@ -25,17 +26,17 @@ public class acciones_alumno {
         
         try{
             
-            Class.forName("com.mysql.jdbc.Driver");
-           url = "jdbc:mysql://localhost/Alumnos";
-            con =DriverManager.getConnection(url, user, password);
+           Class.forName("com.mysql.jdbc.Driver");
+           url = "jdbc:mysql://localhost/alumnos";
+           con =DriverManager.getConnection(url, user, password);
             
             System.out.println("si conecto a la BD");
         
-    }catch(Exception e){
+    }catch(ClassNotFoundException | SQLException e){
         
         System.out.println("no conecto a la BD");
         System.out.println(e.getMessage());
-        System.out.println(e.getStackTrace());
+        System.out.println(Arrays.toString(e.getStackTrace()));
         
         
         
