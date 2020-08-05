@@ -6,7 +6,6 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Sara
  */
-public class Consultar_Lista extends HttpServlet {
+public class Editar_datos extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,54 +31,24 @@ public class Consultar_Lista extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+             int id;
             
+            id = Integer.parseInt(request.getParameter("id"));
+            
+            System.out.println(id);
+            
+            
+            //obtener la busqueda del alumno por id
+           Alumno a =  acciones_alumno.getAlumnoById(id);
             
             
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Lista General de alumnos</title>");            
+            out.println("<title>Servlet Editar_datos</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Lista General de alumnos</h1>"
-                    + "<br>"
-                    + "<a href='index.html'>Regresar al menu principal</a>"
-                    + "<a href= 'Guardar_Registro'>Guardar nuevo alumno</a>");
-            
-            
-            List<Alumno> lista = acciones_alumno.getAllAlumno();
-            
-            out.println("<table border ='1'>");
-            out.println("<tr>"
-                    + "<th>ID</th>"
-                    + "<th>Nombre</th>"
-                    + "<th>Password</th>"
-                    + "<th>Email</th>"
-                    + "<th>Pais</th>"
-                    + "</tr>");
-            
-            for(Alumno a : lista){
-                
-                out.println("<tr><"
-                        + "<td>"+a.getId()+"</td>"
-                        + "<td>"+a.getNombre()+"</td>"
-                        + "<td>"+a.getPassword()+"</td>"
-                        + "<td>"+a.getEmail()+"</td>"
-                        + "<td>"+a.getPais()+"</td>"
-                        + "<td><a href= 'Editar_datos? id="+a.getId()+"'>Editar datos del alumno</a></td>"
-                        + "<td><a href= 'Eliminar_datos? id="+a.getId()+"'>Eliminar alumno</a></td>"
-                        + "/tr>");
-                
-            }
-                
-            out.println("</table>");
-            
-            
-            
-            
-            
-            
-            
+            out.println("<h1>Servlet Editar_datos at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

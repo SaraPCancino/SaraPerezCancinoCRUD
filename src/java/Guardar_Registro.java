@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Administrador
+ * @author Sara
  */
 public class Guardar_Registro extends HttpServlet {
 

@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Administrador
+ * @author Sara
  */
 public class Eliminar_datos extends HttpServlet {
 
@@ -37,6 +37,8 @@ public class Eliminar_datos extends HttpServlet {
             int id;
             
             id = Integer.parseInt(request.getParameter("id"));
+            
+            System.out.println(id);
             
             acciones_alumno.Borrar_alumno(id);
             

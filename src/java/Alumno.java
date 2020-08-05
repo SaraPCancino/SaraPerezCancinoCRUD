@@ -6,7 +6,7 @@
 
 /**
  *
- * @author Administrador
+ * @author Sara
  */
 /*
 esta clase nos va a servir para poder implementar poo su atrubuto de encapsulamiento para tener acceso a los datos que provienen de la tabla de alumno
