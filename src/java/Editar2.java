@@ -31,15 +31,44 @@ public class Editar2 extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            
+            //obtener las variables
+            int id;
+            String nom, pass, email, pais;
+            id= Integer.parseInt(request.getParameter("id2"));
+            nom=request.getParameter("nombre2");
+            pass=request.getParameter("password2");
+            email=request.getParameter("email2");
+            pais=request.getParameter("pais2");
+            
+            //generar objeto del alumno 
+              Alumno a = new Alumno();
+            
+            //envio datos del alumno
+              a.setId(id);
+              a.setNombre(nom);
+              a.setPassword(pass);
+              a.setEmail(email);
+              a.setPais(pais);
+              
+              //ejecutar la query
+              int estatus = acciones_alumno.Actualizar_alumno(a); 
+              
+              if(estatus > 0){
+                  response.sendRedirect("Consultar_Lista");
+              }else{
+          
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Servlet Editar2</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Editar2 at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Error al momento de obtener los datos</h1>"
+            +"<a href ='index.html'>Regresar al menú principal</a>");
             out.println("</body>");
             out.println("</html>");
+              }
         }
     }
 
