@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Sara
  */
-public class Editar_datos extends HttpServlet {
+public class Editar2 extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,50 +31,13 @@ public class Editar_datos extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-             int id;
-            
-            id = Integer.parseInt(request.getParameter("id"));
-            
-            System.out.println(id);
-            
-            
-            //obtener la busqueda del alumno por id
-           Alumno a =  acciones_alumno.getAlumnoById(id);
-            
-            
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title> Ficha de los datos del alumno </title>");            
+            out.println("<title>Servlet Editar2</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Fichas del dato del alumno, para editar</h1>");
-            out.println("<form mehot ='get' name='formulario' action='Editar2'>");
-            out.println("<table border='1'>");
-            out.println("<tr>"
-                    +"<td></td>"
-                    +"<td><input type='hidden' name='id2' value'"+a.getId()+"'</td>"
-                    + "</tr>"
-                    +"<tr>"
-                    +"<td>Nombre:</td>"
-                    +"<td><input type='text' name='nombre2' value'"+a.getNombre()+"'</td>"
-                    + "</tr>"
-                    +"<tr>"
-                    +"<td>Password</td>"
-                    +"<td><input type='password' name='password2' value'"+a.getPassword()+"'</td>"
-                    + "</tr>"
-                    +"<tr>"
-                    +"<td>Email</td>"
-                    +"<td><input type='email' name='email2' value'"+a.getEmail()+"'</td>"
-                    + "<tr> <td>Pais: </td> <td><select name='pais2'>"
-                    +"<option>India</option>"
-                    +"<option>Mexico</option>"
-                    +"<option>Al que nadie quiere</option>"
-                    +"<option>Por ahí</option>"
-                    + "</select></td> </tr>"
-                    + "<tr><td colspan='2'><input type='submit' value='Editar datos' </td></tr>");
-            out.println("</table>");
-            out.println("</form>");
+            out.println("<h1>Servlet Editar2 at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

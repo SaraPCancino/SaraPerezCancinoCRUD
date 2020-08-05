@@ -4,9 +4,17 @@
         <servlet-name>Editar_datos</servlet-name>
         <servlet-class>Editar_datos</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Editar2</servlet-name>
+        <servlet-class>Editar2</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Editar_datos</servlet-name>
         <url-pattern>/Editar_datos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Editar2</servlet-name>
+        <url-pattern>/Editar2</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
